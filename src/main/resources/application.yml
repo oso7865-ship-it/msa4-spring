@@ -4,12 +4,24 @@ spring:
   web:
     error:
       include-stacktrace: always
+  # MySQL
+  datasource:
+    url: jdbc:mysql://localhost:3306/dbsample
+    username: root
+    password: msa505
+    driver-class-name: com.mysql.cj.jdbc.Driver
+# MYBatis
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.msa4spring
+
+# Log
 logging:
   file:
     # 로그 파일 경로
     name: logs/error.log
   level:
     # 로그 출력 레벨 설정(trace, debug, info, warn, error)
-    root: error
+    root: info
     # 특정 패키지만 로그 출력 레벨 설정
     com.msa4spring.controllers: debug
