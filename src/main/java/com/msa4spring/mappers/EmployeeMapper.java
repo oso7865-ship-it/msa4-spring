@@ -12,6 +12,8 @@ public interface EmployeeMapper {
 
     Employee findByPk(long empId);
 
+    int SqlDelete(Employee employee);
+
     // 한개만 반환해야 하기에 Employee를 바로 적어 반환
     int store(Employee employee);
 }

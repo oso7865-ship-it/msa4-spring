@@ -3,6 +3,7 @@ package com.msa4spring.controllers;
 import com.msa4spring.entities.Employee;
 import com.msa4spring.requests.EmployeesStoreRequest;
 import com.msa4spring.responses.ResponseDTO;
+import com.msa4spring.services.MybatisDeleteService;
 import com.msa4spring.services.MybatisService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -10,11 +11,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/api")
 public class MybatisController {
     private final MybatisService mybatisService;
+    private final MybatisDeleteService mybatisDeleteService;
 
     @GetMapping("/employee")
     public ResponseEntity<ResponseDTO<List<Employee>>> index() {
@@ -42,4 +45,6 @@ public class MybatisController {
 
         return ResponseEntity.status(200).body(responseDTO);
     }
+
+
 }
